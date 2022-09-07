@@ -1,0 +1,31 @@
+{% extends 'layout.html' %} {% load static %} {% block title %} Juegos
+<title>Unity WebGL Player | Drag And Drop</title>
+<link rel="shortcut icon" href="{% static 'TemplateData/favicon.ico' %}" />
+<!--link rel="stylesheet" href="{% static 'TemplateData/style.css' %}"-->
+<script src="{%static 'TemplateData/UnityProgress.js' %}"></script>
+<script src="{%static 'Build/UnityLoader.js'%}"></script>
+<script>
+  var unityInstance = UnityLoader.instantiate(
+    "unityContainer",
+    "{% static 'Build/JuegoWeb.json' %}",
+    { onProgress: UnityProgress }
+  );
+</script>
+{% endblock %} {% block content%}
+
+<div class="webgl-content">
+  <div id="unityContainer" style="width: 560px; height: 300px"></div>
+  <!--div id="unityContainer" style="width: %UNITY_WIDTH%px; height: %UNITY_HEIGHT%px; margin: auto"></div-->
+  <div class="footer">
+    <div class="webgl-logo"></div>
+    <div
+      style="height: 20px; width: 250px; background: green"
+      onclick="unityInstance.SetFullscreen(1)"
+    >
+      <b>Click here to make it full screen.</b>
+    </div>
+    <!--div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div-->
+    <div class="title">Drag And Drop</div>
+  </div>
+</div>
+{% endblock %}

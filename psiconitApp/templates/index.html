@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content%}
+<!--Esto es un comentario en Html-->
+{% comment "Esto es un comentario con Django" %}
+    <h1> Hola </h1>
+{% endcomment %}
+    <h1 class="title">{{title}}</h1>
+    <hr/>
+    {% if massages %}
+        {% for message in messages %}
+            <div class = "alert alert-success"
+                {{message}}
+            </div>
+        {%  endfor %}
+    {% endif %}
+
+    {% if user.email %}
+        <h2>Bienvenido, {{request.user.first_name}} {{user.last_name}}</h2>
+        <p>
+        {{user.email}}
+        </p>
+    {% else%}
+        <h2>Identificate para acceder al contenido</h2>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>{% block title %} <!--título de cada página--> {% endblock %}</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/psiconit.css' %}"
+    />
+  </head>
+
+  <body>
+    <!-- Cabecera de la página-->
+    <header>
+      <div id="logotipo">
+        <img class="image" src="{% static 'images/logo1.png' %}" />
+      </div>
+
+      <div class="top-menu-bar">
+        <ul>
+          <li>
+            <a href="">Contacto</a>
+          </li>
+          <li>
+            <a href="{% url 'register'%}">Registro</a>
+          </li>
+        </ul>
+      </div>
+
+      <nav>
+        <ul>
+          <li>
+            <a href="{% url 'inicio'%}">Qué es Psiconit</a>
+          </li>
+          {% if user.email %}
+          <li>
+            <a href="{% url 'listapacientes'%}">lista pacientes</a>
+          </li>
+          <li>
+            <a href="{% url 'pagina'%}">Pagina de pruebas</a>
+          </li>
+          <li>
+            <a href="{% url 'reporte'%}">Reporte</a>
+          </li>
+          <li>
+            <a href="{% url 'logout'%}">Cerrar sesión</a>
+          </li>
+          {% else %}
+          <li>
+            <a href="{% url 'inmersiva'%}">Inmersiva</a>
+          </li>
+          <li>
+            <a href="{% url 'juegos'%}">Cognitiva</a>
+          </li>
+
+          <li>
+            <a href="{% url 'login'%}">Login</a>
+          </li>
+
+          {% endif%}
+        </ul>
+      </nav>
+    </header>
+
+    <div id="content">
+      <div class="box">
+        {% block content %}
+        <strong>Contenido del bloque original!!!</strong>
+        {% endblock %}
+      </div>
+    </div>
+
+    <footer>Rehabilitación cognitiva &copy; César Quinayás</footer>
+  </body>
+</html>

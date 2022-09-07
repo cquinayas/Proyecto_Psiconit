@@ -1,0 +1,124 @@
+:root{
+    --gray-color: #f8f8f8;
+    --brand-color: red;
+    --blue-color: #065fd4;
+    --dark-color: #181818;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  html{
+    font-size: 62.5%;
+  }
+  
+  body{
+    font-family: sans-serif;
+    font-size: 1.6rem;
+  }
+a{
+    text-decoration: none;
+}
+/*Estilos cabecera*/
+header{
+    display: grid;
+    grid-template-columns: 230px auto;
+    grid-template-rows: 40px 100px;
+}
+#logotipo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+.image{
+    width: 100%;
+}
+#logotipo h1{
+    
+    margin-top: 5px;
+   
+    font-size: 2.4rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    
+    color: #42a096;
+
+    text-align: center;
+    align-self: center;
+}
+
+.top-menu-bar {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: #4d4d4d;
+    /*border: 1px solid #333333;
+    box-shadow: 0px 22px 22px gray;*/
+}
+
+ul{
+    list-style: none;
+    text-decoration: none;
+}
+
+.top-menu-bar ul li{
+    line-height: 40px;
+    float: right;
+}
+.top-menu-bar ul li a{
+    display: block;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+}
+nav{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    width: 100%;
+    
+}
+nav ul{
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    /*float: right;*/
+    padding-top: 35px;
+}
+nav ul li{
+    
+    margin: 0 10px;
+    height: max-content;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background-color: var(--gray-color);
+    
+} 
+nav ul li a{
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 2rem;
+    
+}
+nav ul li a:hover{
+    background-color: black;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+#content{
+    width: 1212px;
+    min-height: 930px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    margin-top: 40px;
+}

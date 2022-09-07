@@ -1,0 +1,25 @@
+{% extends 'layout.html' %} 
+{% block title %} {{title}} {% endblock %} 
+
+{% block content%}
+
+<h1 class="title">{{title}}</h1>
+
+{% if massages %} 
+    {% for message in messages %}
+        <div class="alert alert-warning">{{message}}</div>
+    {% endfor %} 
+{% endif %}
+
+<form method="post" action="">
+  {% csrf_token %}
+  <label for="username">Nombre de usuario:</label>
+  <input type="texto" name="username" />
+
+  <label for="password">Contraseña:</label>
+  <input type="password" name="password" />
+
+  <input type="submit" value="login" />
+</form>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content%}
+
+<h1 class="title">{{title}}</h1>
+
+{% if massages %}
+{% for message in messages %}
+    <div class = "alert alert-warning">
+        {{message}}
+    </div>
+{%  endfor %}
+{% endif %}
+
+    
+<form method="post" action="">
+	{% csrf_token %}
+	{% for field in form %}
+		<label>{{field.label}}<label/>
+		{{field}}
+	{% endfor %}
+	<input type="submit" value="Registrate" />
+</form>
+
+{% endblock %}
